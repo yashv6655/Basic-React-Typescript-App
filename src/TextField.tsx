@@ -18,14 +18,14 @@ interface TextNode {
   text: string;
 }
 
-export const TextField: React.FC<TextFieldProps> = ({ handleChange }) => {
+export const TextField: React.FC<TextFieldProps> = ({ handleChange, text }) => {
   const [count, setCount] = useState<TextNode>({ text: "Hello" });
   const inputRef = useRef<HTMLInputElement>(null);
   const divRef = useRef<HTMLDivElement>(null);
 
   return (
     <div ref={divRef}>
-      <input value="hello" ref={inputRef} onChange={handleChange} />
+      <input value={text} ref={inputRef} onChange={handleChange} />
     </div>
   );
 };
